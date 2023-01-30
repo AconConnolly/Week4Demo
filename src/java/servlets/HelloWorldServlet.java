@@ -31,8 +31,10 @@ public class HelloWorldServlet extends HttpServlet {
         if(firstname.equals("") || firstname == null || lastname == null || lastname.equals("")) {  
              request.setAttribute("firstname", firstname);
              request.setAttribute("lastname", lastname);
+             request.setAttribute("invalid",true);
              request.setAttribute("message", "invalid entry. Please enter both your first and last names.");
-            getServletContext().getRequestDispatcher("/WEB-INF/helloWorldForm.jsp")
+            
+             getServletContext().getRequestDispatcher("/WEB-INF/helloWorldForm.jsp")
                 .forward(request, response);
             return;
         }
